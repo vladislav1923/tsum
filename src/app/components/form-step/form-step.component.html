@@ -1,2 +1,53 @@
-<p>form-step works!</p>
-<button mat-button>Click me!</button>
+<section class="wrapper">
+  <h1 class="title mb-16">Форма</h1>
+  <p class="subtitle mb-32">Заполните форму и мы ее проверим</p>
+
+  <form class="grid-noGutter-spaceBetween">
+    <div class="col-12 mb-16">
+      <mat-form-field>
+        <input matInput placeholder="Укажите ФИО" value="Sushi">
+      </mat-form-field>
+    </div>
+    <div class="col-6-middle mb-16">
+      <mat-radio-group>
+        <mat-radio-button value="1" class="mr-16">Мужской</mat-radio-button>
+        <mat-radio-button value="2">Женский</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="col-6 mb-16">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Дата рождения">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-12 mb-16">
+      <mat-form-field>
+        <mat-label>Семейное положение</mat-label>
+        <mat-select>
+          <mat-option [value]="'value'">
+            value
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-5 mb-16">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Количество детей" value="">
+      </mat-form-field>
+    </div>
+    <div class="col-6 mb-16">
+      <mat-form-field>
+        <input matInput type="email" placeholder="Электронная почта" value="Sushi">
+      </mat-form-field>
+    </div>
+    <div class="col-12 mb-16">
+      <mat-form-field>
+        <textarea matInput placeholder="Комментарии" value="Sushi"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <button mat-stroked-button [style.width.%]="100">Сохранить</button>
+    </div>
+  </form>
+</section>

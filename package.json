@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
     "@ngrx/store": "^8.2.0",
+    "css-reset-and-normalize": "^2.1.0",
+    "gridlex": "^2.7.1",
+    "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
