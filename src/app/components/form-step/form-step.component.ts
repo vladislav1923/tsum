@@ -1,4 +1,4 @@
-import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -36,17 +36,6 @@ export class FormStepComponent implements OnInit, OnDestroy {
   constructor(formBuilder: FormBuilder, userStore: Store<fromRoot.State>) {
     this.formBuilder = formBuilder;
     this.userStore = userStore;
-  }
-
-  @HostListener('document:keyup', ['$event'])
-  public keyUpHandler(event: KeyboardEvent) {
-    if (event.key.charCodeAt(0) === 43) {
-      this.userForm.get('children').setValue(+this.userForm.get('children').value + 1);
-    }
-
-    if (event.key.charCodeAt(0) === 45 && this.userForm.get('children').value > 0) {
-      this.userForm.get('children').setValue(+this.userForm.get('children').value - 1);
-    }
   }
 
   public async ngOnInit(): Promise<void> {
@@ -110,7 +99,8 @@ export class FormStepComponent implements OnInit, OnDestroy {
       gender: [null, Validators.required],
       birthday: [null, Validators.required],
       family: [null],
-      children: [null]
+      children: [null],
+      email: ['', [Validators.required, this.emailValidator]]
     });
   }
 
@@ -126,6 +116,17 @@ export class FormStepComponent implements OnInit, OnDestroy {
 
     if (!hasTwoAndMoreWords) {
       return { isLessTwoWords: true };
+    }
+
+    return null;
+  }
+
+  private emailValidator(control: FormControl): ValidationErrors | null {
+    const value = control.value;
+    const isValidEmail = /\S+@\S+\.\S+/.test(value);
+
+    if (!isValidEmail) {
+      return { isInvalidEmail: true };
     }
 
     return null;

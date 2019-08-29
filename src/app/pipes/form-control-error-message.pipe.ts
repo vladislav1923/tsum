@@ -19,5 +19,9 @@ export class FormControlErrorMessagePipe implements PipeTransform {
     if (formControl.getError('isLessTwoWords')) {
       return 'Поле должно содержать минимум два слова';
     }
+
+    if (formControl.getError('isInvalidEmail')) {
+      return 'Некорректная электронная почта';
+    }
   }
 }

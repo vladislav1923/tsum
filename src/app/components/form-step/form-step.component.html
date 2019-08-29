@@ -31,15 +31,16 @@
     </div>
     <div class="col-5 mb-16">
       <custom-counter formControlName="children"
-                    [control]="userForm.get('children')"
-                    [placeholder]="'Количество детей'">
+                      [control]="userForm.get('children')"
+                      [placeholder]="'Количество детей'">
       </custom-counter>
     </div>
-<!--    <div class="col-6 mb-16">-->
-<!--      <mat-form-field>-->
-<!--        <input matInput type="email" placeholder="Электронная почта" value="Sushi">-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
+    <div class="col-6 mb-16">
+      <custom-input formControlName="email"
+                    [control]="userForm.get('email')"
+                    [placeholder]="'Укажите электронную почту'">
+      </custom-input>
+    </div>
 <!--    <div class="col-12 mb-16">-->
 <!--      <mat-form-field>-->
 <!--        <textarea matInput placeholder="Комментарии" value="Sushi"></textarea>-->

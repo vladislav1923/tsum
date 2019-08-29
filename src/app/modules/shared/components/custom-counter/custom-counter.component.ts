@@ -85,15 +85,11 @@ export class CustomCounterComponent implements ControlValueAccessor, OnDestroy {
 
   private keyDownHandler = (event: KeyboardEvent): void => {
     if (event.key.charCodeAt(0) === 43) {
-      event.preventDefault();
-      this.onChange(this.value);
-      this.onTouched();
+      this.increment(event);
     }
 
     if (event.key.charCodeAt(0) === 45) {
-      event.preventDefault();
-      this.onChange(this.value);
-      this.onTouched();
+      this.decrement(event);
     }
   }
 
