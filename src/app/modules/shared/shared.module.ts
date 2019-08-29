@@ -11,12 +11,14 @@ import {MatButtonModule} from '@angular/material/button';
 
 import {CustomInputComponent} from './components/custom-input/custom-input.component';
 import {CustomRadioComponent} from './components/custom-radio/custom-radio.component';
+import {CustomDatepickerComponent} from './components/custom-datepicker/custom-datepicker.component';
 import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-message.pipe';
 
 @NgModule({
   declarations: [
     CustomInputComponent,
     CustomRadioComponent,
+    CustomDatepickerComponent,
     FormControlErrorMessagePipe
   ],
   imports: [
@@ -33,6 +35,7 @@ import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-messag
   exports: [
     CustomInputComponent,
     CustomRadioComponent,
+    CustomDatepickerComponent,
     FormControlErrorMessagePipe
   ],
   providers: [],
