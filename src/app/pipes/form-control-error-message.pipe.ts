@@ -4,9 +4,6 @@ import {AbstractControl} from '@angular/forms';
 @Pipe({name: 'formControlErrorMessagePipe', pure: false})
 export class FormControlErrorMessagePipe implements PipeTransform {
   transform(formControl: AbstractControl): string {
-
-    console.log(formControl.errors);
-
     if (!formControl.touched) {
       return;
     }

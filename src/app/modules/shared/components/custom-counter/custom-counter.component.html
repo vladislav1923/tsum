@@ -1,0 +1,20 @@
+<mat-form-field>
+  <input matInput
+         type="number"
+         [formControl]="control"
+         [value]="value"
+         [placeholder]="placeholder"
+         (change)="setValue($event)"
+         (focus)="onFocus()"
+         (blur)="onBlur()"
+         autocomplete="off">
+  <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="increment($event)">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="decrement($event)">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <mat-error>
+    <span class="error-message">{{control | formControlErrorMessagePipe}}</span>
+  </mat-error>
+</mat-form-field>

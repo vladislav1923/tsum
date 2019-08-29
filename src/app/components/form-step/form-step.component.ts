@@ -120,9 +120,6 @@ export class FormStepComponent implements OnInit, OnDestroy {
     const hasOnlyCyrillic = /^[А-Яа-я\s]*$/.test(value);
     const hasTwoAndMoreWords = valueAsArray.length > 1 && valueAsArray[0] && valueAsArray[1];
 
-    console.log('hasOnlyCyrillic', hasOnlyCyrillic);
-    console.log('hasTwoAndMoreWords', hasTwoAndMoreWords);
-
     if (!hasOnlyCyrillic) {
       return { isNotOnlyCyrillic: true };
     }

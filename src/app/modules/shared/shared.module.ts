@@ -8,12 +8,14 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatListModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 
 import {CustomInputComponent} from './components/custom-input/custom-input.component';
 import {CustomRadioComponent} from './components/custom-radio/custom-radio.component';
 import {CustomDatepickerComponent} from './components/custom-datepicker/custom-datepicker.component';
 import {CustomSelectComponent} from './components/custom-select/custom-select.component';
+import {CustomCounterComponent} from './components/custom-counter/custom-counter.component';
 import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-message.pipe';
 
 @NgModule({
@@ -22,6 +24,7 @@ import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-messag
     CustomRadioComponent,
     CustomDatepickerComponent,
     CustomSelectComponent,
+    CustomCounterComponent,
     FormControlErrorMessagePipe
   ],
   imports: [
@@ -34,6 +37,7 @@ import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-messag
     MatRadioModule,
     MatListModule,
     MatSelectModule,
+    MatIconModule,
     MatButtonModule
   ],
   exports: [
@@ -41,6 +45,7 @@ import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-messag
     CustomRadioComponent,
     CustomDatepickerComponent,
     CustomSelectComponent,
+    CustomCounterComponent,
     FormControlErrorMessagePipe
   ],
   providers: [],

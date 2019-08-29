@@ -29,11 +29,12 @@
                      [placeholder]="'Семейное положение'"
       ></custom-select>
     </div>
-<!--    <div class="col-5 mb-16">-->
-<!--      <mat-form-field>-->
-<!--        <input matInput type="number" formControlName="children" placeholder="Количество детей">-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
+    <div class="col-5 mb-16">
+      <custom-counter formControlName="children"
+                    [control]="userForm.get('children')"
+                    [placeholder]="'Количество детей'">
+      </custom-counter>
+    </div>
 <!--    <div class="col-6 mb-16">-->
 <!--      <mat-form-field>-->
 <!--        <input matInput type="email" placeholder="Электронная почта" value="Sushi">-->
