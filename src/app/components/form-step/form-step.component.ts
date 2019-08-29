@@ -65,7 +65,7 @@ export class FormStepComponent implements OnInit, OnDestroy {
     this.initForm();
     this.setFamilyStatuses();
     this.$changeGender = this.userForm.get('gender').valueChanges.subscribe(this.setFamilyStatuses);
-    this.$changeBirthday = this.userForm.get('name').valueChanges.subscribe(this.onChangeBirthday);
+    this.$changeBirthday = this.userForm.get('birthday').valueChanges.subscribe(this.onChangeBirthday);
   }
 
   public ngOnDestroy(): void {
@@ -135,8 +135,6 @@ export class FormStepComponent implements OnInit, OnDestroy {
   }
 
   private onChangeBirthday = (value: string): void => {
-    console.log(value);
-
     const birthday = Number(Date.now()) - Number(value);
     const eighteenAgeDay = 18 * 365 * 24 * 60 * 60 * 1000;
     const familyFormControl = this.userForm.get('family');
