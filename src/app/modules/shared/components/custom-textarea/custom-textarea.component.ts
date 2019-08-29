@@ -1,24 +1,20 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import {AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {SelectItemModel} from '../../../../models/select-item.model';
 
 @Component({
-  selector: 'custom-select',
-  templateUrl: './custom-select.component.html',
-  styleUrls: ['./custom-select.component.less'],
+  selector: 'custom-textarea',
+  templateUrl: './custom-textarea.component.html',
+  styleUrls: ['./custom-textarea.component.less'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => CustomSelectComponent),
+    useExisting: forwardRef(() => CustomTextareaComponent),
     multi: true
   }]
 })
-export class CustomSelectComponent implements ControlValueAccessor {
+export class CustomTextareaComponent implements ControlValueAccessor {
 
   @Input()
   public control: AbstractControl;
-
-  @Input()
-  public items: SelectItemModel[] = [];
 
   @Input()
   public placeholder = 'Укажите значение';
@@ -33,8 +29,8 @@ export class CustomSelectComponent implements ControlValueAccessor {
     this.onTouched = () => {};
   }
 
-  public setValue(value: string | null): void {
-    this.value = value;
+  public setValue(event: Event): void {
+    this.value = (event.target as HTMLInputElement).value;
     this.onChange(this.value);
     this.onTouched();
   }

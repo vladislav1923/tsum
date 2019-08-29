@@ -16,6 +16,8 @@ import {CustomRadioComponent} from './components/custom-radio/custom-radio.compo
 import {CustomDatepickerComponent} from './components/custom-datepicker/custom-datepicker.component';
 import {CustomSelectComponent} from './components/custom-select/custom-select.component';
 import {CustomCounterComponent} from './components/custom-counter/custom-counter.component';
+import {CustomTextareaComponent} from './components/custom-textarea/custom-textarea.component';
+import {CustomButtonComponent} from './components/custom-button/custom-button.component';
 import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-message.pipe';
 
 @NgModule({
@@ -25,6 +27,8 @@ import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-messag
     CustomDatepickerComponent,
     CustomSelectComponent,
     CustomCounterComponent,
+    CustomTextareaComponent,
+    CustomButtonComponent,
     FormControlErrorMessagePipe
   ],
   imports: [
@@ -46,6 +50,8 @@ import {FormControlErrorMessagePipe} from '../../pipes/form-control-error-messag
     CustomDatepickerComponent,
     CustomSelectComponent,
     CustomCounterComponent,
+    CustomTextareaComponent,
+    CustomButtonComponent,
     FormControlErrorMessagePipe
   ],
   providers: [],

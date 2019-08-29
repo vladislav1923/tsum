@@ -69,6 +69,8 @@ export class FormStepComponent implements OnInit, OnDestroy {
 
       return;
     }
+
+    // submit to server
   }
 
   private setFamilyStatuses = (): void => {
@@ -98,9 +100,10 @@ export class FormStepComponent implements OnInit, OnDestroy {
       name: ['', [Validators.required, this.nameValidator]],
       gender: [null, Validators.required],
       birthday: [null, Validators.required],
-      family: [null],
+      family: [null, Validators.required],
       children: [null],
-      email: ['', [Validators.required, this.emailValidator]]
+      email: ['', [Validators.required, this.emailValidator]],
+      comment: ['', this.commentValidator]
     });
   }
 
@@ -132,22 +135,29 @@ export class FormStepComponent implements OnInit, OnDestroy {
     return null;
   }
 
+  private commentValidator(control: FormControl): ValidationErrors | null {
+    const value = control.value;
+    const hasOnlyCyrillic = /^[?\-_!.:+=0-9А-Яа-я\s]*$/.test(value);
+
+    if (!hasOnlyCyrillic) {
+      return { isNotOnlyCyrillic: true };
+    }
+
+    return null;
+  }
+
   private onChangeBirthday = (value: string): void => {
     const birthday = Number(Date.now()) - Number(value);
     const eighteenAgeDay = 18 * 365 * 24 * 60 * 60 * 1000;
-    const familyFormControl = this.userForm.get('family');
-
     this.isMoreEighteenAge = birthday >= eighteenAgeDay;
 
     if (this.isMoreEighteenAge) {
-      const familyValidators: ValidatorFn[] = [
-        Validators.required
-      ];
-
-      familyFormControl.setValidators(familyValidators);
+      this.userForm.get('family').setValidators(Validators.required);
     } else {
-      familyFormControl.clearValidators();
+      this.userForm.get('family').clearValidators();
     }
+
+    // this.userForm.get('family').updateValueAndValidity();
   }
 
 }

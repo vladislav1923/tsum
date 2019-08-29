@@ -2,7 +2,7 @@
   <h1 class="title mb-16">Форма</h1>
   <p class="subtitle mb-32">Заполните форму и мы ее проверим</p>
 
-  <form class="grid-noGutter-spaceBetween" [formGroup]="userForm" (submit)="onSubmit()">
+  <form class="grid-noGutter-spaceBetween" [formGroup]="userForm">
     <div class="col-12 mb-16">
       <custom-input formControlName="name"
                     [control]="userForm.get('name')"
@@ -41,13 +41,14 @@
                     [placeholder]="'Укажите электронную почту'">
       </custom-input>
     </div>
-<!--    <div class="col-12 mb-16">-->
-<!--      <mat-form-field>-->
-<!--        <textarea matInput placeholder="Комментарии" value="Sushi"></textarea>-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
+    <div class="col-12 mb-16">
+      <custom-textarea formControlName="comment"
+                       [control]="userForm.get('comment')"
+                       [placeholder]="'Комментарий'">
+      </custom-textarea>
+    </div>
     <div class="col-6">
-<!--      <button mat-stroked-button [style.width.%]="100">Сохранить</button>-->
+      <custom-button (onClick)="onSubmit()">Сохранить</custom-button>
     </div>
   </form>
 </section>
