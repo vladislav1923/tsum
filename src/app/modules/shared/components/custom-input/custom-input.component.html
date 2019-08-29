@@ -1,0 +1,13 @@
+<mat-form-field>
+  <input matInput
+         [formControl]="control"
+         [value]="value"
+         [placeholder]="placeholder"
+         (change)="setValue($event)"
+         (keyup)="setValue($event)"
+         autocomplete="off"
+         required>
+  <mat-error>
+    <span class="error-message">{{control | formControlErrorMessagePipe}}</span>
+  </mat-error>
+</mat-form-field>

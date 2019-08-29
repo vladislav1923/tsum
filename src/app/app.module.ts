@@ -2,13 +2,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSelectModule} from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
+import {ReactiveFormsModule} from '@angular/forms';
+import {SharedModule} from './modules/shared/shared.module';
 import {StoreModule} from '@ngrx/store';
 
 import {reducers, metaReducers} from './store/reducers';
@@ -21,19 +16,14 @@ import {SuccessStepComponent} from './components/success-step/success-step.compo
   declarations: [
     AppComponent,
     FormStepComponent,
-    SuccessStepComponent
+    SuccessStepComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatButtonModule,
+    ReactiveFormsModule,
+    SharedModule,
     StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [],

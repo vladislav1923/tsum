@@ -5,14 +5,14 @@ import {
   ActionReducer,
   MetaReducer
 } from '@ngrx/store';
-import * as formStore from './form';
+import * as userStore from './user';
 
 export interface State {
-  form: formStore.State;
+  userData: userStore.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  form: formStore.reducer
+  userData: userStore.reducer
 };
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
@@ -25,9 +25,9 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
 
 export const metaReducers: MetaReducer<State>[] = [logger];
 
-export const getFormState = createFeatureSelector<formStore.State>('form');
+export const getFormState = createFeatureSelector<userStore.State>('userData');
 
-export const getForm = createSelector(
+export const getUserData = createSelector(
   getFormState,
-  formStore.getForm
+  userStore.getUserData
 );

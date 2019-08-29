@@ -2,52 +2,58 @@
   <h1 class="title mb-16">Форма</h1>
   <p class="subtitle mb-32">Заполните форму и мы ее проверим</p>
 
-  <form class="grid-noGutter-spaceBetween">
+  <form class="grid-noGutter-spaceBetween" [formGroup]="userForm" (submit)="onSubmit()">
     <div class="col-12 mb-16">
-      <mat-form-field>
-        <input matInput placeholder="Укажите ФИО" value="Sushi">
-      </mat-form-field>
-    </div>
-    <div class="col-6-middle mb-16">
-      <mat-radio-group>
-        <mat-radio-button value="1" class="mr-16">Мужской</mat-radio-button>
-        <mat-radio-button value="2">Женский</mat-radio-button>
-      </mat-radio-group>
+      <custom-input formControlName="name"
+                    [control]="userForm.get('name')"
+                    [placeholder]="'Укажите ФИО'">
+      </custom-input>
     </div>
     <div class="col-6 mb-16">
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Дата рождения">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+      <custom-radio formControlName="gender"
+                    [control]="userForm.get('gender')"
+                    [items]="genderItems"
+                    [placeholder]="'Пол *'">
+      </custom-radio>
     </div>
-    <div class="col-12 mb-16">
-      <mat-form-field>
-        <mat-label>Семейное положение</mat-label>
-        <mat-select>
-          <mat-option [value]="'value'">
-            value
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-5 mb-16">
-      <mat-form-field>
-        <input matInput type="number" placeholder="Количество детей" value="">
-      </mat-form-field>
-    </div>
-    <div class="col-6 mb-16">
-      <mat-form-field>
-        <input matInput type="email" placeholder="Электронная почта" value="Sushi">
-      </mat-form-field>
-    </div>
-    <div class="col-12 mb-16">
-      <mat-form-field>
-        <textarea matInput placeholder="Комментарии" value="Sushi"></textarea>
-      </mat-form-field>
-    </div>
+<!--    <div class="col-6 mb-16">-->
+<!--      <mat-form-field>-->
+<!--        <input matInput [matDatepicker]="picker" formControlName="birthday" placeholder="Дата рождения" autocomplete="off" required>-->
+<!--        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--        <mat-datepicker #picker></mat-datepicker>-->
+<!--        <mat-error>-->
+<!--          <span class="error-message">{{userForm.get('birthday') | formControlErrorMessagePipe}}</span>-->
+<!--        </mat-error>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div class="col-12 mb-16" [hidden]="!isMoreEighteenAge">-->
+<!--      <mat-form-field>-->
+<!--        <mat-label>Семейное положение</mat-label>-->
+<!--        <mat-select formControlName="family" required>-->
+<!--          <mat-option *ngFor="let item of familyStatuses" [value]="item.value">{{item.title}}</mat-option>-->
+<!--        </mat-select>-->
+<!--        <mat-error>-->
+<!--          <span class="error-message">{{userForm.get('family') | formControlErrorMessagePipe}}</span>-->
+<!--        </mat-error>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div class="col-5 mb-16">-->
+<!--      <mat-form-field>-->
+<!--        <input matInput type="number" formControlName="children" placeholder="Количество детей">-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div class="col-6 mb-16">-->
+<!--      <mat-form-field>-->
+<!--        <input matInput type="email" placeholder="Электронная почта" value="Sushi">-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div class="col-12 mb-16">-->
+<!--      <mat-form-field>-->
+<!--        <textarea matInput placeholder="Комментарии" value="Sushi"></textarea>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
     <div class="col-6">
-      <button mat-stroked-button [style.width.%]="100">Сохранить</button>
+<!--      <button mat-stroked-button [style.width.%]="100">Сохранить</button>-->
     </div>
   </form>
 </section>
