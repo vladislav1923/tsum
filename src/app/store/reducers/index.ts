@@ -17,8 +17,6 @@ export const reducers: ActionReducerMap<State> = {
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
   return (state: State, action: any): State => {
-    console.log('store state', state);
-    console.log('store action', action);
     return reducer(state, action);
   };
 }
@@ -30,4 +28,9 @@ export const getFormState = createFeatureSelector<userStore.State>('userData');
 export const getUserData = createSelector(
   getFormState,
   userStore.getUserData
+);
+
+export const getDataStatus = createSelector(
+  getFormState,
+  userStore.getDataStatus
 );

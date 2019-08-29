@@ -48,7 +48,9 @@
       </custom-textarea>
     </div>
     <div class="col-6">
-      <custom-button (onClick)="onSubmit()">Сохранить</custom-button>
+      <custom-button [disabled]="isDisableButton" (onClick)="onSubmit()">
+        Сохранить
+      </custom-button>
     </div>
   </form>
 </section>

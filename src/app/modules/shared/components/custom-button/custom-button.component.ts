@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'custom-button',
@@ -6,6 +6,9 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./custom-button.component.less']
 })
 export class CustomButtonComponent {
+
+  @Input()
+  public disabled = false;
 
   @Output()
   public onClick: EventEmitter<void> = new EventEmitter();
