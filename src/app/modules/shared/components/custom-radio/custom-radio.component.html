@@ -1,0 +1,9 @@
+<mat-list>
+  <label mat-subheader class="radio-group-label">{{placeholder}}</label>
+  <mat-radio-group [value]="value" (change)="setValue($event)">
+    <mat-radio-button *ngFor="let item of items" [value]="item.value" class="mr-16">{{item.title}}</mat-radio-button>
+  </mat-radio-group>
+  <mat-error class="mt-5">
+    <span class="error-message">{{control | formControlErrorMessagePipe}}</span>
+  </mat-error>
+</mat-list>

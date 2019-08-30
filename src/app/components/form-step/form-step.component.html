@@ -1,0 +1,56 @@
+<section class="wrapper">
+  <h1 class="title mb-16">Форма</h1>
+  <p class="subtitle mb-32">Заполните форму и мы ее проверим</p>
+
+  <form class="grid-noGutter-spaceBetween" [formGroup]="userForm">
+    <div class="col-12 mb-16">
+      <custom-input formControlName="name"
+                    [control]="userForm.get('name')"
+                    [placeholder]="'Укажите ФИО'">
+      </custom-input>
+    </div>
+    <div class="col-6 mb-16">
+      <custom-radio formControlName="gender"
+                    [control]="userForm.get('gender')"
+                    [items]="genderItems"
+                    [placeholder]="'Пол *'">
+      </custom-radio>
+    </div>
+    <div class="col-6 mb-16">
+      <custom-datepicker formControlName="birthday"
+                         [control]="userForm.get('birthday')"
+                         [placeholder]="'День рождения'">
+      </custom-datepicker>
+    </div>
+    <div class="col-12 mb-16" [hidden]="!isMoreEighteenAge">
+      <custom-select formControlName="family"
+                     [control]="userForm.get('family')"
+                     [items]="familyStatuses"
+                     [placeholder]="'Семейное положение'"
+      ></custom-select>
+    </div>
+    <div class="col-5 mb-16">
+      <custom-counter formControlName="children"
+                      [control]="userForm.get('children')"
+                      [placeholder]="'Количество детей'">
+      </custom-counter>
+    </div>
+    <div class="col-6 mb-16">
+      <custom-input formControlName="email"
+                    [control]="userForm.get('email')"
+                    [placeholder]="'Укажите электронную почту'">
+      </custom-input>
+    </div>
+    <div class="col-12 mb-16">
+      <custom-textarea formControlName="comment"
+                       [control]="userForm.get('comment')"
+                       [placeholder]="'Комментарий'">
+      </custom-textarea>
+    </div>
+    <div class="col-6">
+      <custom-button [disabled]="isDisableButton" (onClick)="onSubmit()">
+        Сохранить
+      </custom-button>
+    </div>
+  </form>
+</section>

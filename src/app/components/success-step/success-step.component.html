@@ -1,0 +1,36 @@
+<section class="wrapper">
+  <h1 class="title mb-16">Форма успешно сохранена!</h1>
+  <p class="subtitle mb-32">Введенные вами данные:</p>
+
+  <ul>
+    <li class="mb-16">
+      <span class="key mr-16">ФИО:</span>
+      <span class="value">{{userData.name}}</span>
+    </li>
+    <li class="mb-16">
+      <span class="key mr-16">Пол:</span>
+      <span class="value">{{userData.gender | genderPipe}}</span>
+    </li>
+    <li class="mb-16">
+      <span class="key mr-16">День рождения:</span>
+      <span class="value">{{userData.birthday | date: 'dd.MM.yyyy'}}</span>
+    </li>
+    <li *ngIf="userData.family" class="mb-16">
+      <span class="key mr-16">Семейное положение:</span>
+      <span class="value">{{userData.family | familyPipe}}</span>
+    </li>
+    <li *ngIf="userData.children" class="mb-16">
+      <span class="key mr-16">Количество детей:</span>
+      <span class="value">{{userData.children}}</span>
+    </li>
+    <li class="mb-16">
+      <span class="key mr-16">Электронная почта:</span>
+      <span class="value">{{userData.email}}</span>
+    </li>
+    <li *ngIf="userData.comment" class="mb-16">
+      <span class="key mr-16">Комментарий:</span>
+      <span class="value">{{userData.comment}}</span>
+    </li>
+  </ul>
+
+</section>
