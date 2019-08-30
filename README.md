@@ -1,4 +1,6 @@
-# W
+# Test project for an interview
+Simple form with enter name, gender, birthday and other standard fields.
+Angular 8, Angular Material, RxJS, NgRx were used in development. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 

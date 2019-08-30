@@ -1,7 +1,7 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import {AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {MatRadioChange} from '@angular/material';
 import {SelectItemModel} from '../../../../models/select-item.model';
-import {MatRadioChange} from "@angular/material";
 
 @Component({
   selector: 'custom-radio',
